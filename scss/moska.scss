@@ -1,0 +1,51 @@
+/*
+    Created on : 03/11/2018, 20:32:41
+    Author     : Guilherme Augusto - Aonix
+*/
+
+@import "./reset.scss";
+@import "./grid.scss";
+@import "./common/border.scss";
+@import "./common/font.scss";
+@import "./common/hide-show.scss";
+@import "./sizing/space.scss";
+@import "./stylization/colors.scss";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+
+// Define sizes
+$mob : 175px;
+$tab : 533px;
+$des : 1024px;
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  padding: 0 8px;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f1f1f1;
+  font-weight: lighter;
+  font-size: 15pt;
+  line-height: 1.2;
+  scroll-behavior: smooth;
+}
+
+i.fa {
+  padding: 0 8px 0 0;
+}
+
+
+@media screen and (min-width: $mob) and (max-width: 1023px){
+
+}
+
+@media (min-width: $tab) and (max-width: 1023px) {
+
+}

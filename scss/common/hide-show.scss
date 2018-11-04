@@ -1,0 +1,67 @@
+// compileCompressed: ../../css/common/$1.css
+
+// Define sizes
+$mob : 175px;
+$tab : 533px;
+$des : 1024px;
+
+.hidden-desk {
+  display: none;
+}
+.hidden-mob {
+  display: inherit;
+}
+.hidden-tab {
+  display: inherit;
+}
+.show-desk {
+  display: inherit;
+}
+.show-mob {
+  display: none;
+}
+.show-tab {
+  display: none;
+}
+
+@media screen and (min-width: $mob) and (max-width: 1023px){
+  .hidden-desk {
+    display: inherit;
+  }
+  .hidden-mob {
+    display: none;
+  }
+  .hidden-tab {
+    display: inherit;
+  }
+  .show-desk {
+    display: none;
+  }
+  .show-mob {
+    display: inherit;
+  }
+  .show-tab {
+    display: none;
+  }
+}
+
+@media (min-width: $tab) and (max-width: 1023px) {
+  .hidden-desk {
+    display: inherit;
+  }
+  .hidden-mob {
+    display: inherit;
+  }
+  .hidden-tab {
+    display: none;
+  }
+  .show-desk {
+    display: none;
+  }
+  .show-mob {
+    display: none;
+  }
+  .show-tab {
+    display: inherit;
+  }
+}

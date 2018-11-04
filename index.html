@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MoskaCss - by Aonix</title>
+    <link rel="stylesheet" href="./css/moska.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="row no-guter">
+      <div class="col-2 blue-5"></div>
+      <div class="col-10 no-padding">
+        <div class="row blue-6"></div>
+        <div class="row padding-24">
+          <div class="row padding-36 white border-radius-5">
+            <h4><i class="fa fa-th-large"></i>Sistemas de Coluna</h4>
+            <p>
+              O sistema de colunas do MoskaCss é baseado em CSS Grid Layout. Uma coluna pode ser definida com o espaço de 1 a 12 colunas e necessariamente precisa estar dentro de uma .row que divide o seu conteúdo em 12 colunas.
+            </p>
+
+            <div class="row margin-top-16">
+              <div class="col-1 border">.col-1</div>
+              <div class="col-5 border">.col-5</div>
+              <div class="col-5 border">.col-5</div>
+              <div class="col-1 border">.col-1</div>
+            </div>
+            <div class="row">
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+              <div class="col-1 border">.col-1</div>
+            </div>
+            <div class="row">
+              <div class="col-1 border">.col-1</div>
+              <div class="col-10 border">.col-10</div>
+              <div class="col-1 border">.col-1</div>
+            </div>
+          </div>
+          <div class="row padding-36 white border-radius-5 margin-top-16">
+            <h5><i class="fa fa-th-large"></i>Movimentação de colunas</h5>
+            <p>Você pode mover a coluna apenas informando a classe .mov-? onde ? é o número desejado, veja o exemplo a baixo: </p>
+            <div class="row margin-top-16 margin-top-16">
+              <div class="col-2 border">.col-2</div>
+            </div>
+            <div class="row">
+              <div class="col-2 move-1 border">.col-2 .move-1</div>
+            </div>
+            <div class="row">
+              <div class="col-2 move-2 border">.col-2 .move-2</div>
+            </div>
+            <div class="row">
+              <div class="col-2 move-3 border">.col-2 .move-3</div>
+            </div>
+            <div class="row">
+              <div class="col-6 move-4 border">.col-6 .move-4</div>
+            </div>
+            <div class="row">
+              <div class="col-2 move-10 border">.col-2 .move-10</div>
+            </div>
+          </div>
+          <div class="row padding-36 white border-radius-5 margin-top-16">
+            <h5><i class="fa fa-th-large"></i>Fixar colunas em dispositivos móveis</h5>
+            <p>Para que a coluna tenha seu tamanho fixo mesmo em dispositivos móvies, adicione a classe .columns n div pai das colunas</p>
+            <div class="row column border margin-top-16 padding-8">
+              <p>.row .column</p>
+              <div class="col-4 border">.col-4</div>
+              <div class="col-4 border">.col-4</div>
+              <div class="col-4 border">.col-4</div>
+            </div>
+            <p>O mesmo é necessário para que movimentação de colunas aconteça no mobile</p>
+            <div class="row column border margin-top-16 padding-8">
+              <p>.row .column</p>
+              <div class="col-4 move-4 border">.col-4 .move-4</div>
+            </div>
+          </div>
+          <div class="row padding-36 white border-radius-5 margin-top-16">
+            <h5><i class="fa fa-th-large"></i> Tamanhos de colunas diferentes de acordo com o dispositivo</h5>
+            <p>É possível definir tamanhos diferentes para diferentes resoluções, caso defina .col-2 no desktop as colunas irão equivaler a 1/6 das 12 colunas, automaticamente em dispositivos móveis a coluna ocupara 100% do tamanho, porem em alguns casos se faz necessário forçar o tamanho de apenas uma ou mais colunas, neste caso juntamente com o .col-2 podemos passar uma nova classe para o dispositivo em questão, por exemplo: .col-2 .tab-4 .mob-6. Desta forma em desktop teremos 6 colunas ocupando 2 espaços totalizando 12 colunas, no tablet teremos 6 colunas ocupando quatros espaços e em smartphones teremos 6 colunas ocupando 6 espaços.</p>
+            <div class="row border margin-top-16">
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+              <div class="col-2 tab-4 mob-6 border">.col-2 .tab-4 .mob-6</div>
+            </div>
+          </div>
+          <div class="row padding-36 white border-radius-5 margin-top-16">
+            <h5><i class="fa fa-eye-slash"></i> Exibir ou ocultar elementos em diferentes resoluções</h5>
+            <p>Adicionando a classe .hide-desk o elemento é ocultado apenas no desktop, .hidden-tab o elemento é ocultado apenas no tablet e .hidden-mob o elemento é ocultado apenas em smartphones.</p>
+            <div class="row margin-top-16">
+              <div class="row hidden-desk border"><div class="col-12">.hidden-desk Oculto para Desktop</div></div>
+              <div class="row hidden-tab border"><div class="col-12">.hidden-tab Oculto para Tablet</div></div>
+              <div class="row hidden-mob border"><div class="col-12">.hidden-mob Oculto para Smartphone</div></div>
+            </div>
+            <p>Adicionando a classe .show-desk o elemento será exibido apenas no desktop, .show-tab o elemento será exibido apenas no tablet e .show-mob o elemento será exibido apenas em smartphones.</p>
+            <div class="row margin-top-16">
+              <div class="row show-desk border"><div class="col-12">.show-desk Exibido para Desktop</div></div>
+              <div class="row show-tab border"><div class="col-12">.show-tab Exibido para Tablet</div></div>
+              <div class="row show-mob border"><div class="col-12">.show-mob Exibido para Smartphone</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="./js/app.js"></script>
+  </body>
+</html>

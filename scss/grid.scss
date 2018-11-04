@@ -1,0 +1,65 @@
+// Define sizes
+$mob : 175px;
+$tab : 533px;
+$des : 1024px;
+
+.row {
+  display: grid;
+  grid-column: span 12;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 8px;
+  min-height: 56px;
+  height: auto;
+  // margin: 8px 0;
+}
+
+.row.no-guter {
+  grid-gap: 0px;
+}
+
+.row:first {
+  margin: 0!important;
+}
+
+//Lopping to do columns size
+@for $i from 1 through 12{
+  //Columns
+  .col-#{$i}{
+    grid-column-end: span $i;
+    padding: 8px;
+  }
+
+  //Offset move
+  @if $i + 1 <= 12 {
+    .move-#{$i}{
+      grid-column-start: $i + 1;
+    }
+  }
+}
+
+@media screen and (min-width: $mob) and (max-width: 1023px){
+  @for $i from 1 through 12{
+    .row:not(.column) > .col-#{$i}{
+      grid-column-end: span 12;
+    }
+    .row:not(.column) > .move-#{$i}{
+      grid-column-start: span 12;
+    }
+  }
+}
+
+@media screen and (min-width: $mob) and (max-width: 1023px){
+  @for $i from 1 through 12{
+    .mob-#{$i}, .row:not(.column) > .mob-#{$i}{
+      grid-column-end: span $i;
+    }
+  }
+}
+
+@media (min-width: $tab) and (max-width: 1023px) {
+  @for $i from 1 through 12{
+    .tab-#{$i}, .row:not(.column) > .tab-#{$i}{
+      grid-column-end: span $i;
+    }
+  }
+}
