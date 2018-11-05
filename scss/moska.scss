@@ -10,6 +10,7 @@
 @import "./common/hide-show.scss";
 @import "./sizing/space.scss";
 @import "./stylization/colors.scss";
+@import "./components/highlight.scss";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 
@@ -33,7 +34,7 @@ body {
   background-color: #f1f1f1;
   font-weight: lighter;
   font-size: 15pt;
-  line-height: 1.2;
+  line-height: 24px;
   scroll-behavior: smooth;
 }
 
