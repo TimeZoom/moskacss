@@ -4,62 +4,69 @@ $tab : 533px;
 $des : 1024px;
 
 .row {
-  display: grid;
-  grid-column: span 12;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 8px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
   min-height: 32px;
   height: auto;
-  // margin: 8px 0;
 }
 
-.row.no-guter {
-  grid-gap: 0px;
+.no-guter > div[class^="col"] {
+  margin: 0;
 }
-
-.row:first {
-  margin: 0!important;
+*[class^="col"] {
+  margin: 4px;
+  align-items: flex-start;
 }
 
 //Lopping to do columns size
 @for $i from 1 through 12{
   //Columns
+  $size: percentage(1/12 * $i);
+  $width: calc(#{$size} - 8px);
   .col-#{$i}{
-    grid-column-end: span $i;
+    display: flex;
+    flex-flow: row wrap;
+    width: $width;
     padding: 8px;
   }
 
   //Offset move
   @if $i + 1 <= 12 {
     .move-#{$i}{
-      grid-column-start: $i + 1;
+      margin-left: calc(calc(#{$i} * 8.33333%) + 4px)!important;
     }
   }
 }
 
 @media screen and (min-width: $mob) and (max-width: 1023px){
   @for $i from 1 through 12{
+    $size: percentage(1/12 * $i);
     .row:not(.column) > .col-#{$i}{
-      grid-column-end: span 12;
+      width: 100%;
     }
     .row:not(.column) > .move-#{$i}{
-      grid-column-start: span 12;
+      margin-left: inherit!important;
     }
   }
 }
 
 @media screen and (min-width: $mob) and (max-width: 1023px){
   @for $i from 1 through 12{
+    $size: percentage(1/12 * $i);
+    $width: calc(#{$size} - 8px);
     .mob-#{$i}, .row:not(.column) > .mob-#{$i}{
-      grid-column-end: span $i;
+      width: $width;
     }
   }
 }
 
 @media (min-width: $tab) and (max-width: 1023px) {
   @for $i from 1 through 12{
+    $size: percentage(1/12 * $i);
+    $width: calc(#{$size} - 8px);
     .tab-#{$i}, .row:not(.column) > .tab-#{$i}{
-      grid-column-end: span $i;
+      width: $width;
     }
   }
 }

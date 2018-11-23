@@ -1,8 +1,12 @@
 export function init () {
-  var codeContent = document.querySelector('.highlight')
-  var lines = codeContent.innerHTML.split('\n')
+  console.clear()
+  var codeContentParent = document.querySelector('.highlight')
+  var lines = codeContentParent.innerHTML.split('\n')
 
-  codeContent.innerHTML = ""
+  codeContentParent.innerHTML = `<div class="line"></div><div class="code"></div>`
+  var codeContent = document.querySelector('.highlight .code')
+  var lineContent = document.querySelector('.highlight .line')
+
   var lineNumber = 1
   lines.map(line => {
     if (line) {
@@ -26,9 +30,9 @@ export function init () {
                     .replace(/\|/g, '"')
                     .replace(/@/g, '>')
 
-      // console.log(tag)
       if (tag) {
-        codeContent.innerHTML += `<span class="number">${lineNumber}</span>${tag}`
+        lineContent.innerHTML += `<span class="number">${lineNumber}</span>`
+        codeContent.innerHTML += `<p>${tag}</p>`
         codeContent.innerHTML += '\n'
         lineNumber++
       }

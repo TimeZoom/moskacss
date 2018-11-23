@@ -5,14 +5,20 @@
     <title>MoskaCss - by Aonix</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/moska.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
   <body>
 
     <div class="row no-guter">
-      <div class="col-2 blue-5"></div>
-      <div class="col-10 no-padding">
-        <div class="row blue-6"></div>
+      <div class="col-2 default padding-16">
+        <a href="/" class="col-12 white padding-20 border-radius-5 horizontal-center" class="title"><!--Navbar title-->
+            <img src="/img/icon.png" width="30px" />
+            Moska<small style="font-size: 9pt;">Css</small>
+        </a>
+      </div>
+      <div class="col-10 no-space">
+        <div class="row blue-6 padding-tb-30"></div>
         <div class="row padding-24">
           <div class="row padding-36 white border-radius-5">
             <h4><i class="fa fa-download"></i>Instalação</h4>
@@ -31,7 +37,7 @@
           <div class="row padding-36 white border-radius-5">
             <h4><i class="fa fa-th-large"></i>Sistemas de Coluna</h4>
             <p>
-              O sistema de colunas do MoskaCss é baseado em CSS Grid Layout. Uma coluna pode ser definida com o espaço de 1 a 12 colunas e necessariamente precisa estar dentro de uma .row que divide o seu conteúdo em 12 colunas.
+              O sistema de colunas do MoskaCss é baseado em Flexbox. Uma coluna pode ser definida com o espaço de 1 a 12 colunas e necessariamente precisa estar dentro de uma .row que divide o seu conteúdo em 12 colunas.
             </p>
 
             <div class="row margin-top-16">
@@ -122,6 +128,28 @@
               <div class="row show-desk border"><div class="col-12">.show-desk Exibido para Desktop</div></div>
               <div class="row show-tab border"><div class="col-12">.show-tab Exibido para Tablet</div></div>
               <div class="row show-mob border"><div class="col-12">.show-mob Exibido para Smartphone</div></div>
+            </div>
+          </div>
+          <div class="row padding-36 white border-radius-5 margin-top-16">
+            <h5><i class="fa fa-eye-slash"></i> Alinhamento</h5>
+            <p>...</p>
+            <div class="row margin-top-16">
+              <div class="row padding-8 border horizontal-left">
+                <p>.row.horizontal-left</p>
+                <div class="col-5 border">.col-5</div>
+              </div>
+              <div class="row padding-8 border horizontal-center">
+                <p>.row.horizontal-center</p>
+                <div class="col-5 border">
+                  <p class="content-center">
+                    .col-5 .self-center
+                  </p>
+                </div>
+              </div>
+              <div class="row padding-8 border horizontal-right">
+                <p>.row.horizontal-left</p>
+                <div class="col-6 border">.col-6</div>
+              </div>
             </div>
           </div>
         </div>
