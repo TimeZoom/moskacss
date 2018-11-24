@@ -45,7 +45,7 @@ export function render () {
         <i class="fa fa-times"></i>
       </a>
       <div class="row padding-24 horizontal-center">
-        <img src="/img/logo.svg" class="col-8 mob-8" />
+        <img src="./img/logo.svg" class="col-8 mob-8" />
       </div>
       <ul class="menu black-4 detail-blue-2 vertical margin-top-16">
         ${menu.map((item, i) => {
