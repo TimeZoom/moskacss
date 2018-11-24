@@ -1,0 +1,38 @@
+// main: ../moska.scss
+
+ul.menu {
+  width: 100%;
+  display: flex;
+}
+ul.menu * {
+  transition: all 0.05s ease-in;
+}
+ul.menu.vertical {
+  flex-flow: row wrap;
+}
+ul.menu.vertical li {
+  width: 100%;
+  font-size: 12pt;
+}
+ul.menu li a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-left: 5px solid transparent;
+}
+ul.menu li ul li {
+  font-size: 11pt!important;
+}
+ul.menu li ul li a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+ul.menu li:hover ul li a {
+  background-color: inherit!important;
+  border-color: transparent!important;
+}
+// ul.menu li:hover {
+//   margin: 8px 0;
+// }

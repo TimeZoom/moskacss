@@ -6,12 +6,13 @@
 @import "./reset.scss";
 @import "./grid.scss";
 @import "./common/border.scss";
-@import "./common/font.scss";
+@import "./common/typography.scss";
 @import "./common/hide-show.scss";
 @import "./sizing/space.scss";
 @import "./sizing/align.scss";
 @import "./stylization/colors.scss";
 @import "./components/highlight.scss";
+@import "./components/menu.scss";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 
 
@@ -33,6 +34,7 @@ p, h1, h2, h3, h4, h5, h6 {
 body, html {
   height: 100%;
   min-height: 100%;
+  scroll-behavior: smooth;
 }
 body {
   font-family: 'Noto Sans', sans-serif;
@@ -40,15 +42,21 @@ body {
   font-weight: lighter;
   font-size: 15pt;
   line-height: 24px;
-  scroll-behavior: smooth;
 }
 
 i.fa {
   padding: 0 8px 0 0;
 }
 
-.content-center {
-  grid-column-end: span 12;
+a {
+  text-decoration: none;
+}
+a.anchor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 0;
+  visibility: hidden;
 }
 
 @media screen and (min-width: $mob) and (max-width: 1023px){
@@ -57,8 +65,4 @@ i.fa {
 
 @media (min-width: $tab) and (max-width: 1023px) {
 
-}
-
-.self-center {
-  align-self: center;
 }

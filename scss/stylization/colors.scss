@@ -1,4 +1,4 @@
-// compileCompressed: ../../css/stylization/$1.css
+// compileCompressed: ../../css/stylization/$1.css, main: ../moska.scss
 
 $name : ("gray", "black", "yellow", "orange", "red", "brown", "blue", "purple", "pink", "green", "white");
 
@@ -76,9 +76,17 @@ $colors : (
 
         .#{nth($name, $i)}-#{$ii}{ background-color: $color; color: invertColor($color);}
         .text-#{nth($name, $i)}-#{$ii}{ color: $color;}
+        ul.menu li ul li a.text-#{nth($name, $i)}-#{$ii}{ color: $color;}
 
         .menu.#{nth($name, $i)}-#{$ii} li a{ color: invertColor($color);  }
-        .menu.#{nth($name, $i)}-#{$ii} li a:hover{ background-color: darken($color, 10%)  }
+        .menu.#{nth($name, $i)}-#{$ii} li:hover a, .menu.#{nth($name, $i)}-#{$ii} li.active a{
+          background-color: darken($color, 10%)
+        }
+
+        .menu.detail-#{nth($name, $i)}-#{$ii} li:hover > a, .menu.detail-#{nth($name, $i)}-#{$ii} li.active > a {
+          color: $color;
+          border-color: $color;
+        }
         .#{nth($name, $i)}-#{$ii}.border{ border: 1px solid darken($color, 10%); }
 
         .switch-slider.#{nth($name, $i)}-#{$ii} { background-color: rgba(0,0,0,0.2); }

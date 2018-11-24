@@ -1,4 +1,4 @@
-// compileCompressed: ../../css/sizing/$1.css
+// compileCompressed: ../../css/sizing/$1.css, main: ../moska.scss
 .horizontal-left {
   justify-content: flex-start;
 }
@@ -7,4 +7,27 @@
 }
 .horizontal-center {
   justify-content: center;
+}
+
+.self-left {
+  align-self: flex-start;
+}
+.self-right {
+  align-self: flex-end;
+}
+.self-center {
+  align-self: center;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.height-100 {
+  height: 100%;
 }

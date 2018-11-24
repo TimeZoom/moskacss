@@ -1,3 +1,5 @@
+// main: ./moska.scss
+
 // Define sizes
 $mob : 175px;
 $tab : 533px;
@@ -9,6 +11,7 @@ $des : 1024px;
   flex-flow: row wrap;
   min-height: 32px;
   height: auto;
+  position: relative;
 }
 
 .no-guter > div[class^="col"] {
@@ -17,18 +20,23 @@ $des : 1024px;
 *[class^="col"] {
   margin: 4px;
   align-items: flex-start;
+  align-self: flex-start;
 }
 
 //Lopping to do columns size
 @for $i from 1 through 12{
   //Columns
   $size: percentage(1/12 * $i);
-  $width: calc(#{$size} - 8px);
+  $width: #{$size};
+  $widthGuter: calc(#{$size} - 8px);
   .col-#{$i}{
     display: flex;
     flex-flow: row wrap;
-    width: $width;
+    width: $widthGuter;
     padding: 8px;
+  }
+  .no-guter > .col-#{$i} {
+    width: $width;
   }
 
   //Offset move
@@ -36,7 +44,11 @@ $des : 1024px;
     .move-#{$i}{
       margin-left: calc(calc(#{$i} * 8.33333%) + 4px)!important;
     }
+    .no-guter > .move-#{$i} {
+      margin-left: calc(#{$i} * 8.33333%)!important;
+    }
   }
+
 }
 
 @media screen and (min-width: $mob) and (max-width: 1023px){

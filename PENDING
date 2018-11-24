@@ -1,9 +1,12 @@
-no-guter
-no-margin
-no-padding
-no-space
-border-radius
-paddings
-margins
-h1.light
-Highlight
+_did_|_doc_|_name_
+ ok  | no  | no-guter
+ ok  | no  | no-margin
+ ok  | no  | no-padding
+ ok  | no  | no-space
+ ok  | no  | border-radius
+ ok  | no  | paddings
+ ok  | no  | margins
+ ok  | no  | h1.light
+ ok  | no  | Highlight
+ ok  | no  | Menu
+ ok  | no  | uppercase, lowercase, capitalize

@@ -1,9 +1,10 @@
-// compileCompressed: ../../css/common/$1.css
+// compileCompressed: ../../css/common/$1.min.css, compileExpanded: ../../css/common/$1.css, main: ../moska.scss
 
 h1, h2, h3, h4, h5, h6, p {
   width: 100%;
   grid-column: span 12;
   line-height: 1.2;
+  margin: 8px 0;
 }
 h1:not(.light), h2:not(.light), h3:not(.light), h4:not(.light), h5:not(.light), h6:not(.light) {
   font-weight: bold;
@@ -32,6 +33,25 @@ h6 {
   font-size: 15px;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.text-full-width {
+  text-transform: full-width;
+}
+
+.bold {
+  font-weight: bold;
+}
 
 @for $i from 1 through 12{
   .font-x#{$i}{ font-size: #{$i*10}00% }

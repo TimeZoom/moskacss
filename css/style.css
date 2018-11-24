@@ -2,3 +2,25 @@
   background-color: #282C34;
   color: white;
 }
+
+.menu.black-4 {
+  background-color: #282C34;
+}
+.menu.black-4 li:hover a, .menu.black-4 li.active a {
+  background-color: #181A1E;
+}
+
+a.anchor {
+  top: -78px;
+}
+#sidebar {
+  z-index: 5;
+  transition: all 0.2s ease-in;
+}
+
+@media screen and (min-width: 175px) and (max-width: 1023px){
+  #sidebar {
+    width: 90%;
+    margin-left: -90%;
+  }
+}
