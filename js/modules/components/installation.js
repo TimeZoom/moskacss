@@ -10,7 +10,7 @@ export function render() {
       <div class="row padding-8">
         <code class="highlight col-12 border-radius-5">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="//timezoom.github.io/moskacss/css/moska.min.css">
+          <link rel="stylesheet" href="//aonix-group.github.io/moskacss/css/moska.min.css">
         </code>
       </div>
 

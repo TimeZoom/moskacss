@@ -22,4 +22,4 @@ content.innerHTML += SizeByDevice.render()
 content.innerHTML += HideShow.render()
 content.innerHTML += Align.render()
 
-Highlight.init()
+Highlight.render()
