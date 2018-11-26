@@ -2,33 +2,15 @@
 
 .highlight {
   background-color: #282c34;
-  padding: 32px;
-  font-size: 12pt;
+  padding: 24px;
+  margin: 4px 0;
   display: grid;
   grid-template-columns: auto 1fr;
-  border-radius: 5px;
-}
-.highlight span.tag.first {
-  padding-left: 8px;
-}
-.highlight span.tag, .highlight span.text {
-  color: white;
-}
-.highlight span.tagName {
-  color: #ff3c41;
-}
-.highlight span.attr {
-  color: orange;
-}
-.highlight span.attrValue {
-  color: lightgreen;
-}
-
-.highlight span.number {
+  border-radius: 3px;
   width: 100%;
-  color: gray;
+  overflow-x: auto;
+  position: relative;
 }
-
 .highlight .line {
   display: grid;
   grid-template-columns: 1fr;
@@ -36,6 +18,71 @@
   text-align: right;
   padding-right: 8px;
 }
+.highlight .code span.tag.first {
+  padding-left: 8px;
+}
+.highlight .code {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.highlight .code p, .highlight .line span.number {
+  font-size: 12pt;
+  height: 20px;
+  line-height: 20px;
+  white-space: nowrap;
+}
 .highlight .code p {
   margin: 0;
 }
+
+.highlight .line span.number {
+  width: 100%;
+  color: gray;
+}
+
+.highlight .btn-copy {
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  color: gray;
+  padding: 3px 0;
+  font-size: 10pt;
+  line-height: 1.2rem;
+  cursor: pointer;
+  filter: opacity(0.6);
+}
+
+.highlight .btn-copy i.fa {
+  font-size: 9pt;
+  padding-right: 4px;
+}
+
+.highlight .credits {
+  position: absolute;
+  right: 24px;
+  bottom: 8px;
+  font-size: 10pt;
+  color: gray;
+  filter: opacity(0.6);
+}
+
+.highlight .btn-copy:hover,
+.highlight .btn-copy:active {
+  filter: opacity(1);
+}
+
+/* HTML Tags */
+.highlight .code span.tag, .highlight .code span.text {
+  color: white;
+}
+.highlight .code span.tagName {
+  color: #ff3c41;
+}
+.highlight .code span.attr {
+  color: orange;
+}
+.highlight .code span.attrValue {
+  color: lightgreen;
+}
+
+/* END HTML Tags */
