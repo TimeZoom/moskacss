@@ -32,6 +32,15 @@ export function render() {
       <div class="col-10 border">.col-10</div>
       <div class="col-1 border">.col-1</div>
     </div>
+
+    <code class="highlight col-12 border-radius-5">
+      <div class="row margin-top-16">
+        <div class="col-1 border">.col-1</div>
+        <div class="col-5 border">.col-5</div>
+        <div class="col-5 border">.col-5</div>
+        <div class="col-1 border">.col-1</div>
+      </div>
+    </code>
   </div>
   `
 }

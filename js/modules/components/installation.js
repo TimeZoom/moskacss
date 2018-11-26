@@ -8,10 +8,10 @@ export function render() {
       </p>
 
       <div class="row padding-8">
-        <pre class="highlight col-12 border-radius-5">
+        <code class="highlight col-12 border-radius-5">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="stylesheet" href="//timezoom.github.io/moskacss/css/moska.min.css">
-        </pre>
+        </code>
       </div>
 
     </div>
