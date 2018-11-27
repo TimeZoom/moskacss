@@ -86,3 +86,56 @@
 }
 
 /* END HTML Tags */
+
+
+/* END JS Tags */
+.highlight .code span.varType {
+  color: #e200e2;
+  padding: 0 4px;
+}
+.highlight .code span.varObject {
+  color: #ff3c41;
+  padding: 0 4px;
+  padding-left: 32px;
+}
+.highlight .code span.var {
+  color: #ff3c41;
+  padding: 0 4px;
+}
+.highlight .code span.string {
+  color: lightgreen;
+  padding: 0 4px;
+}
+.highlight .code span.selector {
+  color: lightblue;
+  padding: 0 4px;
+}
+.highlight .code span.number {
+  color: orange;
+}
+.highlight .code span.selectorDot {
+  color: lightblue;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+.highlight .code span.function {
+  color: #1b89ff;
+  padding-left: 3px;
+}
+.highlight .code span.parentheses {
+  color: white;
+  padding-left: 2px;
+  margin-right: -2px;
+}
+.highlight .code span.open-closes {
+  color: white;
+  padding: 0 4px;
+}
+
+
+.highlight .code span.colon, .highlight .code span.comma{
+  color: white;
+  margin-left: -3px;
+  padding-right: 4px;
+}
+/* END JS Tags */

@@ -1,9 +1,11 @@
 export function render (node = null) {
-  var highlights = node || document.querySelectorAll('.highlight')
+  var highlights = document.querySelectorAll('.highlight')
   highlights.forEach(highlight => {
     let safeHighlight = highlight.cloneNode(highlight)
     let lang = highlight.getAttribute('lang') || 'html'
-    let lines = processLines(safeHighlight.children, lang)
+    let children = safeHighlight.children.length ? safeHighlight.children : safeHighlight.innerHTML.toString().split('\n')
+
+    let lines = processLines(children, lang)
 
     createContent (highlight, lines)
   })
@@ -55,20 +57,94 @@ function createContent (highlight, lines) {
 
 function processLines (childrens, lang) {
   let lines = []
-  Array.from(childrens).forEach(originalLine => {
-    let line = originalLine.cloneNode(originalLine)
+  let childrensList = typeof childrens === 'array' ? childrens : Array.from(childrens)
+
+  childrensList.forEach(originalLine => {
+    let line = typeof originalLine === 'string' ? originalLine : originalLine.cloneNode(originalLine)
     let pad = document.createTextNode('\u00A0')
     let coloredLine = document.createElement('p')
-    // let parent = line[0].closest('.highlight')
 
     if (lang === 'html') {
       lines = languageHTML(lang, originalLine, line, lines, coloredLine)
     }
+    if (lang === 'javascript') {
+      lines = languageJS(lang, line, lines, coloredLine)
+    }
 
   })
+
   return lines
 }
 
+function getRegexes ()
+{
+  return [
+    {
+      name: 'variable',
+      className: 'var',
+      regex: /(?=(?:[^'"]*['"][^'"]*['"])*[^'"]*$)((?!let|const|var|import|from|require)\b([a-zA-z]{1,}[a-zA-|0-9]+))(?!\()\b/g
+    },
+    { name: 'varType', regex: /(import|from|let|const|var)/g, className: 'varType'},
+    { name: 'colon', regex: /([:])/g, className: 'colon'},
+    { name: 'number', regex: /(\d{1,})/g, className: 'number'},
+    { name: 'equal', regex: /(=|\+)/g, className: 'selector'},
+    { name: 'string', regex: /(['"`].*['"`])/g, className: 'string'},
+    { name: 'dot', regex: /(?=(?:[^'"]*['"][^'"]*['"])*[^'"]*$)(\.)/g, className: 'selectorDot'},
+    { name: 'function', regex: /[\.]([a-zA-Z]{1,}[a-zA-Z0-9\-\_]{1,})[\(]/g, className: 'function'},
+    { name: 'parentheses', regex: /([\(]|[\)])/g, className: 'parentheses'},
+    { name: 'openCloses', regex: /([\{\}\[\]])/g, className: 'open-closes'},
+    { name: 'comma', regex: /(\,)/g, className: 'comma'},
+  ]
+}
+function languageJS (lang, line, lines, coloredLine) {
+  let pad = document.createTextNode('\u00A0')
+  let regexes = getRegexes()
+  let linePad = /^[\s]{8}/g.exec(line)
+  if (linePad) {
+    [...Array(4)].map(obj => { coloredLine.appendChild(pad.cloneNode(pad)) })
+  }
+
+  line = line.trim()
+  let lineParts = []
+  if (line) {
+    let matchIndexes = []
+    regexes.map(obj => {
+
+      let match;
+      while ((match = obj.regex.exec(line)) !== null) { // loop where exists regex match groups
+        if (match.index === obj.regex.lastIndex) { // prevent infinity loop
+          obj.regex.lastIndex++;
+        }
+
+        matchItem = match[1] // get group Result
+        let index = line.indexOf(matchItem) // store index of mach in line
+        let span = document.createElement('span')
+        let text = document.createTextNode(matchItem)
+        span.appendChild(text)
+        span.classList.add(obj.className)
+
+        let hasMatchIndex = matchIndexes.filter(obj => obj.matchItem == matchItem) // Check if has objects equals in this line
+        if (hasMatchIndex.length && hasMatchIndex[0].index == index) { // If yes check if the index positions are same
+          let newIndex = index + matchItem.split('').length // Increase index with new match lenght
+          let cutedLine = line.substr(newIndex) // Cut index ahead las index
+          index = cutedLine.indexOf(matchItem) + newIndex // Set new index
+        }
+        matchIndexes.push({index, matchItem}) // Store last index and char
+
+        lineParts.push({index: index, span}) // Store this match at array
+      }
+    })
+
+    let linePartsSorted = lineParts.sort((a, b) => a.index > b.index ? 1 : (b.index > a.index ? -1 : 0)) // Sorte indexes
+    linePartsSorted.map(obj => {
+      coloredLine.appendChild(obj.span) // Append in order
+    })
+  }
+   // Add to lines array
+  coloredLine.children.length ? lines.push(coloredLine) : null
+
+  return lines
+}
 function languageHTML (lang, originalLine, line, lines, coloredLine) {
   let hasChildren = originalLine.children
   let hasText = !hasChildren.length && document.createTextNode(line.innerText)
@@ -125,6 +201,7 @@ function languageHTML (lang, originalLine, line, lines, coloredLine) {
   return lines
 }
 
+// HTML
 function createSpan (line, regex, className, attributs = null) {
   let mainSpan = document.createElement('span')
   let pad = document.createTextNode( '\u00A0' )
@@ -154,8 +231,9 @@ function createSpan (line, regex, className, attributs = null) {
   return mainSpan
 }
 
-//get range
+// Copy Content
 function copyContent (event) {
+  console.log('clicked')
   event.preventDefault()
   let elm = event.target.closest('.highlight').querySelector('.code')
   let range = document.createRange()
